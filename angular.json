@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootswatch/dist/cyborg/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -88,6 +89,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "pokedex-app:build:production",
+              "serveTarget": "pokedex-app:serve:production"
+            },
+            "development": {
+              "buildTarget": "pokedex-app:build:development",
+              "serveTarget": "pokedex-app:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

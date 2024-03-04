@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "pokedex-app",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

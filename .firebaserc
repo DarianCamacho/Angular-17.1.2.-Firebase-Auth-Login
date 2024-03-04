@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pokedexapp-9e98e": {
+      "hosting": {
+        "pokedex-app": [
+          "pokedexapp-9e98e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pokedexapp-9e98e"
+  }
+}
