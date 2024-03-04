@@ -1,8 +1,9 @@
 /* Estilos del modal */
 .modal-content {
-    background-color: #fff;
+    background-color: #000;
+    color: #fff; /* Cambiamos el color del texto a blanco */
     border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5); /* Cambiamos el color de la sombra */
     padding: 20px;
 }
 
@@ -15,11 +16,11 @@
 
 .modal-title {
     font-size: 1.2rem;
-    color: #333;
+    color: #fff; /* Cambiamos el color del título a blanco */
 }
 
 .modal-body {
-    color: #555;
+    color: #ccc; /* Cambiamos el color del texto del cuerpo a gris claro */
 }
 
 .modal-footer {
