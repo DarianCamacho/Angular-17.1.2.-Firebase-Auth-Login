@@ -7,13 +7,13 @@ import { provideFirebaseApp, initializeApp} from '@angular/fire/app';
 import { getAuth, provideAuth  } from '@angular/fire/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCZ-OSxLBJR8sL8dr5y9SiD8f1dYzq51Tw",
-  authDomain: "pokedexapp-9e98e.firebaseapp.com",
-  projectId: "pokedexapp-9e98e",
-  storageBucket: "pokedexapp-9e98e.appspot.com",
-  messagingSenderId: "371622617924",
-  appId: "1:371622617924:web:960e305029a126c4cd6d11",
-  measurementId: "G-KG802F2T4H"
+  apiKey: "-",
+  authDomain: "-",
+  projectId: "-",
+  storageBucket: "-",
+  messagingSenderId: "-",
+  appId: "-",
+  measurementId: "-"
 };
 
 export const appConfig: ApplicationConfig = {
