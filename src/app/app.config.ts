@@ -14,6 +14,7 @@ const firebaseConfig = {
   messagingSenderId: "-",
   appId: "-",
   measurementId: "-"
+};
 
 export const appConfig: ApplicationConfig = {
   providers: [

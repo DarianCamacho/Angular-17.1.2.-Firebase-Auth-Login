@@ -13,10 +13,10 @@
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
+        @if (authService.currentUserSig() == null) {
         <li class="nav-item">
           <a class="nav-link" routerLink="/login">Login</a>
         </li>
-        @if (authService.currentUserSig() == null) {
         <li class="nav-item">
           <a class="nav-link" routerLink="/register">Register</a>
         </li>
