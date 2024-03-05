@@ -34,7 +34,7 @@ export class RegisterComponent {
       .register(rawForm.email, rawForm.username, rawForm.password)
       .subscribe({
         next: () => {
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/login');
         },
         error: (err) => {
           this.openErrorModal(err.code); // Abre el modal de error
