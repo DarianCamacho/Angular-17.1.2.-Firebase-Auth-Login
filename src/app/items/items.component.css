@@ -1,0 +1,18 @@
+/* Estilo para la tarjeta de categoría */
+.category-card {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Estilo para resaltar la categoría seleccionada */
+.category-card.selected {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.center-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

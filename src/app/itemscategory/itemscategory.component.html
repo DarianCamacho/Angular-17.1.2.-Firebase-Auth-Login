@@ -1,0 +1,19 @@
+<div *ngIf="selectedCategory" class="container mt-4">
+    <h2 class="text-center mb-4">Items in Category: {{ selectedCategory.name }}</h2>
+    <div class="row">
+      <div *ngFor="let item of items" class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text mb-3">Cost: {{ item.details?.cost }}</p>
+            <div class="item-image">
+              <img *ngIf="item.details && item.details.sprites && item.details.sprites.default" 
+                   [src]="item.details.sprites.default" 
+                   alt="{{ item.name }}" 
+                   class="card-img-top">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

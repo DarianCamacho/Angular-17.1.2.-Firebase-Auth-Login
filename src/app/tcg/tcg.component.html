@@ -1,0 +1,12 @@
+<div *ngFor="let movie of movies">
+  <h2>{{ movie.titulo }}</h2>
+  <p><strong>Director:</strong> {{ movie.director.nombre }}</p>
+  <p><strong>Año:</strong> {{ movie.anio }}</p>
+  <p><strong>Género:</strong> {{ movie.genero.join(', ') }}</p>
+  <p><strong>Calificación:</strong> {{ movie.calificacion.join(', ') }}</p>
+  <p><strong>Actores:</strong></p>
+  <ul>
+    <li *ngFor="let actor of movie.actores">{{ actor.nombre }} - {{ actor.personaje }}</li>
+  </ul>
+  <p><strong>Sinopsis:</strong> {{ movie.sinopsis }}</p>
+</div>

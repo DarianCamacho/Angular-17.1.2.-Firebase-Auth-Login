@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row" style="margin-top: 25px;">
+      <div class="col-md-4 text-center">
+        <h5> N. {{ pokemonDetails?.id.toString().padStart(4, '0') }}</h5>
+        <img *ngIf="pokemonDetails" [src]="pokemonDetails.sprites?.front_default" alt="Pokemon Image" class="img-fluid rounded-circle mb-3 pokemon-image" width="500">
+        <button (click)="playCry(pokemonDetails)" class="btn btn-primary">Play Cry</button>
+      </div>
+  
+      <div class="col-md-8">
+        <h1 class="display-4 text-uppercase mb-4">{{ pokemonDetails?.name }}</h1>
+        <div *ngIf="pokemonDescriptions" class="pokemon-description">
+          <p>{{ pokemonDescriptions }}</p>
+        </div>
+        <div class="pokemon-details border p-4 mt-4" *ngIf="!loading && !error">
+          <div class="row">
+            <div class="col-md-6">
+              <h2 class="text-uppercase mb-3">Attributes</h2>
+              <p><strong>Height:</strong> {{ pokemonDetails?.height }}</p>
+              <p><strong>Weight:</strong> {{ pokemonDetails?.weight }}</p>
+              <p><strong>Base Experience:</strong> {{ pokemonDetails?.base_experience }}</p>
+            </div>
+            <div class="col-md-6">
+              <h2 class="text-uppercase mb-3">Abilities & Types</h2>
+              <p><strong>Abilities:</strong></p>
+              <ul class="list-unstyled">
+                <li *ngFor="let ability of pokemonDetails?.abilities">{{ ability.ability.name }}</li>
+              </ul>
+              <p><strong>Type:</strong></p>
+              <ul class="list-unstyled">
+                <li *ngFor="let type of pokemonDetails?.types">{{ type.type.name }}</li>
+              </ul>
+            </div>
+          </div>
+          <div *ngIf="pokemonWeaks.length" class="mt-4">
+            <h2 class="text-uppercase mb-3">Weaknesses</h2>
+            <ul class="list-unstyled">
+              <li *ngFor="let weak of pokemonWeaks">{{ weak.name }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center mt-4" *ngIf="loading">
+          <p>Loading...</p>
+        </div>
+        <div class="text-center mt-4" *ngIf="error">
+          <p>Error loading Pokémon details. Please try again later.</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mt-4" *ngIf="pokemonDetails && !loading && !error">
+      <div class="col-md-3 text-center">
+        <h3 class="text-uppercase mb-3">Front Default</h3>
+        <img [src]="pokemonDetails.sprites?.front_default" alt="Front Default Sprite" class="img-fluid rounded pokemon-sprite">
+      </div>
+      <div class="col-md-3 text-center">
+        <h3 class="text-uppercase mb-3">Back Default</h3>
+        <img [src]="pokemonDetails.sprites?.back_default" alt="Back Default Sprite" class="img-fluid rounded pokemon-sprite">
+      </div>
+      <div class="col-md-3 text-center">
+        <h3 class="text-uppercase mb-3">Front Shiny</h3>
+        <img [src]="pokemonDetails.sprites?.front_shiny" alt="Front Shiny Sprite" class="img-fluid rounded pokemon-sprite">
+      </div>
+      <div class="col-md-3 text-center">
+        <h3 class="text-uppercase mb-3">Back Shiny</h3>
+        <img [src]="pokemonDetails.sprites?.back_shiny" alt="Back Shiny Sprite" class="img-fluid rounded pokemon-sprite">
+      </div>
+    </div>
+  </div>
+  

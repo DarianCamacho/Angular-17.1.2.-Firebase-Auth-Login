@@ -1,0 +1,61 @@
+@if (authService.currentUserSig()) {
+    <div class="container mt-4 pokedex">
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Search Pokemon" [(ngModel)]="searchTerm">
+        </div>
+    
+        <div class="mb-3">
+            <select class="form-select" [(ngModel)]="selectedType" (change)="filterByType()">
+                <option value="">Select Type</option>
+                <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+            </select>
+        </div>
+    
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" (click)="showAllPokemon()">Show All Pokémons</button>
+        </div>
+        <hr>
+    
+        <div class="row row-cols-md-auto">
+            <div *ngFor="let pokeId of filteredPokeIds" class="col-md-4 mb-4" (click)="onViewDetail(pokeId)">
+                <div class="card">
+                    <div class="card-body position-relative">
+                        <h5 class="card-title">{{ pokes[pokeId].name.toUpperCase() }}</h5>
+                        <div class="position-absolute top-0 end-0 p-2">
+                            <p class="m-0">N. {{ pokeId.toString().padStart(4, '0') }}</p>
+                        </div>
+                        <div *ngIf="pokes[pokeId]">
+                            <img src='{{ pokes[pokeId].sprites.front_default }}' class="card-img-top img-fluid" alt="Pokemon Image" loading="eager">
+                        </div>
+                        <div class="mb-2">
+                            <p class="card-text">
+                                <span *ngFor="let type of pokes[pokeId].types; let last = last">
+                                    {{ type.type.name }}{{ !last ? ', ' : '' }}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" (click)="loadMorePokemon()">Load More</button>
+        </div>
+        <footer>
+            <hr>
+        </footer>
+    </div>
+}
+@if (authService.currentUserSig() == null) {
+    <div class="center-div card border-primary mx-auto mb-3" style="max-width: 20rem;">
+        <div class="card-header bg-light text-white">¡PokeAuth!</div>
+        <div class="card-body">
+            <h4 class="card-title">IMPORTANTE!</h4>
+            <p class="card-text">Para acceder a esta información, por favor inicia sesión o crea una cuenta.</p>
+            <a href="/login" class="btn btn-primary">Iniciar Sesión</a>
+            <div style="height: 10px;"></div> <!-- Espacio entre los botones -->
+            <a  href="/register" class="btn btn-info">Crear Cuenta</a>
+        </div>
+    </div>
+    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/717.png" alt="Yveltal">
+    }

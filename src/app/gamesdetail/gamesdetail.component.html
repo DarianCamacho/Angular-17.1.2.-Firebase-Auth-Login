@@ -1,0 +1,27 @@
+<div *ngIf="game" class="game-container">
+    <h1 class="game-name">{{ game.name }}</h1>
+    <div class="game-info">
+        <div class="detail">
+            <p><strong>Generation:</strong> {{ game.generation.name }}</p>
+        </div>
+        <div class="detail">
+            <p><strong>Region:</strong> {{ game.regions[0].name }}</p>
+        </div>
+        <div class="detail">
+            <p><strong>Pokedexes:</strong></p>
+            <ul>
+                <li *ngFor="let pokedex of game.pokedexes">{{ pokedex.name }}</li>
+            </ul>
+        </div>
+        <div class="detail">
+            <p><strong>Move Learn Methods:</strong></p>
+            <ul>
+                <li *ngFor="let method of game.move_learn_methods">{{ method.name }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="download-button">
+        <button class="btn btn-primary">Download Now</button>
+    </div>
+</div>
+

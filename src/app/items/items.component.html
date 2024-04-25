@@ -1,0 +1,27 @@
+@if (authService.currentUserSig()) {
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Item Categories</h1>
+    <div class="row">
+      <div *ngFor="let category of categories" class="col-md-4 mb-3">
+        <div class="card category-card" (click)="onSelectCategory(category)" [ngClass]="{'selected': selectedCategory === category}">
+          <div class="card-body">
+            <h5 class="card-title">{{ category.name }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+}
+@if (authService.currentUserSig() == null) {
+  <div class="center-div card border-danger mx-auto mb-3" style="max-width: 20rem;">
+      <div class="card-header bg-light text-white">¡PokeAuth!</div>
+      <div class="card-body">
+          <h4 class="card-title">IMPORTANTE!</h4>
+          <p class="card-text">Para acceder a esta información, por favor inicia sesión o crea una cuenta.</p>
+          <a href="/login" class="btn btn-primary">Iniciar Sesión</a>
+          <div style="height: 10px;"></div> <!-- Espacio entre los botones -->
+          <a  href="/register" class="btn btn-info">Crear Cuenta</a>
+      </div>
+  </div>
+  <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/902.png" alt="Yveltal">
+  }

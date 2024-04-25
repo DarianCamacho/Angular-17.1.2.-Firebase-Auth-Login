@@ -1,0 +1,32 @@
+.pokemon-games {
+  background-color: transparent; /* Cambia el color de fondo */
+  padding: 20px; /* Agrega un espacio alrededor del contenido */
+}
+
+.game-card {
+  margin-bottom: 20px; /* Agrega espacio entre las tarjetas */
+}
+
+.game-card-content {
+  height: 100%; /* Hace que el contenido de la tarjeta ocupe toda la altura */
+  background-color: #605dff; /* Cambia el color de fondo de la tarjeta */
+  border: none; /* Quita el borde de la tarjeta */
+  border-radius: 10px; /* Agrega esquinas redondeadas a la tarjeta */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Agrega una sombra sutil */
+  transition: transform 0.3s ease; /* Agrega una transición al efecto de hover */
+}
+
+.game-card-content:hover {
+  transform: scale(1.05); /* Escala la tarjeta al hacer hover */
+}
+
+.white-text {
+  color: white; /* Cambia el color del texto a blanco */
+}
+
+  .center-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

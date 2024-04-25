@@ -1,0 +1,30 @@
+@if (authService.currentUserSig()) {
+  <div class="container mt-4 pokemon-games">
+    <h1 class="text-center">Pokémon Games</h1>
+    <div class="row justify-content-center">
+        <div *ngFor="let version of versions" class="col-md-4 game-card" (click)="onGameClick(version.id)">
+            <div class="card game-card-content">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                    <h5 class="card-title text-center white-text">{{ version.name }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+@if (authService.currentUserSig() == null) {
+  <div class="center-div card border-danger mx-auto mb-3" style="max-width: 20rem;">
+      <div class="card-header bg-light text-white">¡PokeAuth!</div>
+      <div class="card-body">
+          <h4 class="card-title">IMPORTANTE!</h4>
+          <p class="card-text">Para acceder a esta información, por favor inicia sesión o crea una cuenta.</p>
+          <a href="/login" class="btn btn-primary">Iniciar Sesión</a>
+          <div style="height: 10px;"></div> <!-- Espacio entre los botones -->
+          <a  href="/register" class="btn btn-info">Crear Cuenta</a>
+      </div>
+  </div>
+  <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/612.png" alt="Haxorus">
+  }
+
+  
