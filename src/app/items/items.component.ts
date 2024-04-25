@@ -19,7 +19,7 @@ export class ItemsComponent {
   categories: any[] = [];
   selectedCategory: any;
   items: any[] = [];
-
+  
   constructor(private router: Router, private itemsService: ItemsService) { }
 
   ngOnInit(): void {

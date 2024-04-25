@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ItemsService } from '../items/services/items.service';
 
@@ -15,7 +15,7 @@ export class ItemscategoryComponent {
   items: any[] = [];
   loadingItems: boolean = false;
 
-  constructor(private route: ActivatedRoute, private itemsService: ItemsService) { }
+  constructor(private route: ActivatedRoute, private itemsService: ItemsService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -49,5 +49,9 @@ export class ItemscategoryComponent {
         console.error('Error al cargar los detalles del ítem:', error);
       });
     });
+  }
+
+  onSelectItem(categoryId: string, itemId: string): void {
+    this.router.navigate(['/categories', categoryId, 'items', itemId]);
   }
 }

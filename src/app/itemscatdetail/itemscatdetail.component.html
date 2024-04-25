@@ -1,0 +1,42 @@
+<div *ngIf="itemDetails" class="container mt-4">
+    <h2 class="text-center mb-4">{{ itemDetails.name }}</h2>
+    <div class="row justify-content-center"> <!-- Cambiado justify-content-center -->
+      <div class="col-md-6">
+        <div class="card text-center"> <!-- Agregado text-center -->
+          <div class="card-body">
+            <h5 class="card-title">{{ itemDetails.id }}</h5>
+            <img *ngIf="itemDetails.sprites && itemDetails.sprites.default" 
+                 [src]="itemDetails.sprites.default" 
+                 class="card-img-top custom-img" 
+                 alt="{{ itemDetails.name }}">
+            <h5 class="card-title">Cost: {{ itemDetails.cost }}</h5>
+            <h5 class="card-title">Fling Power: {{ itemDetails.fling_power }}</h5>
+            <h5 class="card-title">Category: {{ itemDetails.category.name }}</h5>
+            <h5 class="card-title">Effect</h5>
+            <p class="card-text">{{ itemDetails.effect_entries[0]?.effect }}</p>
+            <h5 class="card-title">Flavor Text</h5>
+            <p class="card-text">{{ itemDetails.flavor_text_entries[0]?.text }}</p>
+            <h5 class="card-title">Game Indices</h5>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let index of itemDetails.game_indices">
+                <span class="font-weight-bold">Game Index:</span> {{ index.game_index }} | <span class="font-weight-bold">Generation:</span> {{ index.generation.name }}
+              </li>
+            </ul>
+            <h5 class="card-title">Held by Pokemon</h5>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let heldPokemon of itemDetails.held_by_pokemon">
+                <span class="font-weight-bold">Pokemon:</span> {{ heldPokemon.pokemon.name }} | <span class="font-weight-bold">Version:</span> {{ heldPokemon.version_details[0].version.name }}
+              </li>
+            </ul>
+            <h5 class="card-title">Attributes</h5>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let attribute of itemDetails.attributes">
+                <span class="font-weight-bold">Name:</span> {{ attribute.name }} | <span class="font-weight-bold">URL:</span> {{ attribute.url }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
